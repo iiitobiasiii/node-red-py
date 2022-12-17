@@ -56,54 +56,6 @@ class Node:
         return d
 
 
-# class MqttbrokerNode(Node):
-#     def __init__(self, name, broker, port, usetls):
-#         self.id = create_id()
-#         self.type = "mqtt-broker",
-#         self.name = name #"bem.eco"
-#         self.broker = broker #"bem.eco",
-#         self.port= port #"43660",
-#         self.tls = "2f43073528146e9d"
-#         self.clientid = ""
-#         self.autoConnect = True
-#         self.usetls = usetls
-#         self.protocolVersion = 5
-#         self.keepalive = 60
-#         self.cleansession= True,
-#         self.birthTopic= ""
-#         self.birthQos= "0"
-#         self.birthRetain= False
-#         self.birthPayload= ""
-#         self.birthMsg= {}
-#         self.closeTopic= ""
-#         self.closeQos= "0"
-#         self.closeRetain= False
-#         self.closePayload= ""
-#         self.closeMsg= {}
-#         self.willTopic= ""
-#         self.willQos= "0",
-#         self.willRetain= "False"
-#         self.willPayload= ""
-#         self.willMsg= {}
-#         self.userProps= ""
-#         self.sessionExpiry= ""
-
-# class InfluxNode(Node):
-#     def __init__(self, name, hostname, port):
-#         self.id = create_id()
-#         self.type = "influxdb"
-#         self.hostname = hostname #127.0.0.1"
-#         self.port = port #"8086"
-#         self.protocol = "http"
-#         self.database = "database"
-#         self.name= name # "wg1nsbrk"
-#         self.usetls = False
-#         warn("tls")
-#         self.tls = "2f43073528146e9d"
-#         self.influxdbVersion = 2.0
-#         self.url = "http://localhost:8086"
-#         self.rejectUnauthorized= True
-
 class MqttinNode(Node):
     def __init__(self, mqttbroker_id, name: str, flow: Flow, topic: str, qos: int):
         super().__init__(name, flow, )
@@ -133,7 +85,7 @@ class DebugNode(Node):
 
 
 class InfluxdbOutNode(Node):
-    def __init__(self, influxnode_id: int, name: str, flow: Flow, influx_bucket: str, influx_measurement: str):
+    def __init__(self, influxnode_id: int, name: str, flow: Flow, influx_bucket: str, influx_measurement: str, influx_org: str):
         super().__init__(name, flow, )
         self.type = 'influxdb out'
 
@@ -145,7 +97,7 @@ class InfluxdbOutNode(Node):
         self.database = "database"
         self.precisionV18FluxV20 = 'ms'
         self.retentionPolicyV18Flux = ''
-        self.org = "BEM"
+        self.org = influx_org
         self.bucket = influx_bucket
 
 

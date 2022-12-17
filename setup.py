@@ -5,8 +5,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name='node-red-py',  # should match the package folder
-    packages=['node-red-py'],  # should match the package folder
+    name='noderedpy',  # should match the package folder
+    packages=['noderedpy'],  # should match the package folder
     version='0.0.1',  # important for updates
     license='GPLv3',  # should match your chosen license
     description='Testing installation of Package',
@@ -14,17 +14,17 @@ setuptools.setup(
     long_description_content_type="text/markdown",  # README.md is of type 'markdown'
     author='Tobias Busse',
     author_email='kontakt@tobiasbusse.de',
-    url='https://github.com/',
+    url='https://github.com/iiitobiasiii/node-red-py',
     project_urls={  # Optional
-        "Bug Tracker": "https://github.com/mike-huls/toolbox_public/issues"
+        "Bug Tracker": "https://github.com/iiitobiasiii/node-red-py/issues"
     },
     install_requires=['requests'],  # list all packages that your package uses
-    keywords=["pypi", "mikes_toolbox", "tutorial"],  # descriptive meta-data
+    keywords=["node red", "noderedpy"],  # descriptive meta-data
     classifiers=[  # https://pypi.org/classifiers
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Documentation',
-        'License :: OSI Approved :: MIT License',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',

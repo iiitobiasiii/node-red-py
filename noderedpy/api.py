@@ -1,16 +1,19 @@
 import requests
 
 class NodeRedApi:
-    def __int__(self, base_url):
+    def __init__(self, base_url):
         self.base_url = base_url
 
         r = requests.get(self.base_url + "/auth/login")
         self.need_auth = bool(r.json())
+        if self.need_auth:
+            print("Use get_auth_header to authenticate")
         self.mqtt_brokers = None
-        self.self.influxdbs = None
+        self.influxdbs = None
         self.token_resp = {}
+        self.auth_header = {}
 
-    def get_auth_header(self, username, password):
+    def get_auth_header(self, username: str, password: str):
         if self.need_auth:
             headers = {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -19,8 +22,7 @@ class NodeRedApi:
             r = requests.post(self.base_url + "/auth/token", headers=headers, data=data)
             self.token_resp = r.json()
             self.auth_header = {f"Authorization": f"Bearer {self.token_resp['access_token']}"}
-        else:
-            self.auth_header = {}
+        return
 
     def get_flows(self, flow_name):
             r = requests.get(self.base_url + "/flows", headers=self.auth_header)
