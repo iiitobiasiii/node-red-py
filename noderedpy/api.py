@@ -13,7 +13,7 @@ class NodeRedApi:
         self.token_resp = {}
         self.auth_header = {}
 
-    def get_auth_header(self, username: str, password: str):
+    def authenticate(self, username: str, password: str):
         if self.need_auth:
             headers = {
                 'Content-Type': 'application/x-www-form-urlencoded',
