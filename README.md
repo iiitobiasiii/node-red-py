@@ -4,6 +4,7 @@ This package simplifies usage of the node-red API.
 
 ## Installation
 
+
 `python -m pip install path/to/project`
 
 ## Usage
